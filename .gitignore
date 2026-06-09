@@ -1,0 +1,20 @@
+# === Maven ===
+target/
+
+# === Output di compilazione ===
+out/
+*.class
+
+# === IntelliJ (rigenerato all'apertura del progetto Maven) ===
+.idea/
+*.iml
+
+# === Appunti di studio e utility, NON parte del progetto ===
+SPIEGAZIONE_*.md
+COPIONE_PRESENTAZIONE.md
+ScreenshotHarness.java
+docs/LEGGIMI-SCREENSHOT.txt
+
+# === File di sistema ===
+.DS_Store
+Thumbs.db

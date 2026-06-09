@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jaski</groupId>
+    <artifactId>battaglia-navale-gui</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Battaglia Navale GUI</name>
+    <description>Gioco della Battaglia Navale con interfaccia grafica (Java + Swing + Java 2D)</description>
+
+    <properties>
+        <!-- Compila per Java 17 (il progetto usa record, switch espressioni, var). -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Classe principale: Main e' nel package di default. -->
+        <exec.mainClass>Main</exec.mainClass>
+    </properties>
+
+    <build>
+        <!-- Nome del jar prodotto: target/battaglia-navale-gui.jar -->
+        <finalName>battaglia-navale-gui</finalName>
+        <plugins>
+            <!-- Crea un JAR ESEGUIBILE (con Main-Class nel manifest):
+                 dopo "mvn package" si avvia con: java -jar target/battaglia-navale-gui.jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${exec.mainClass}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Permette di avviare il gioco direttamente con: mvn exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>${exec.mainClass}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
